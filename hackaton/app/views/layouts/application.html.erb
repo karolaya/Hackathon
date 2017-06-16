@@ -16,19 +16,14 @@
 		
 		<% if user_signed_in? %>	
 	  		Bienvenido <strong><%= current_user.institution.nombre %></strong>
-	  		<a href="#nav">Menu</a>
-			<%= link_to 'Editar perfil', edit_user_registration_path %> 
-	    	<%= link_to "Logout", destroy_user_session_path, method: :delete %>
+	    	<a href="#nav">Menu</a>
 
 		<% elsif admin_signed_in? %>
 	  		Logueado como <strong>root</strong>
 	  		<a href="#nav">Menu</a>
-	  		<%= link_to "Logout", destroy_admin_session_path, method: :delete %>
-
 		<% else %>	
 	  		<%= link_to "Login user", new_user_session_path , :class => "button alt"%> 
 	  		<%= link_to "Login admin", new_admin_session_path , :class => "button alt"%>
-
 		<% end %>
 
 	</header> 	
@@ -36,9 +31,15 @@
 	<!-- Nav -->
 	<nav id="nav">
 		<ul class="links">
+			<li><%= link_to 'Editar perfil', edit_user_registration_path %></li>
 			<% if admin_signed_in? %>
+				<li><%= link_to "Instituciones", institutions_path %></li>
 				<li><%= link_to 'Estadísticas', home_statistics_path %></li>
-			<% end %>
+				<li><%= link_to "Logout", destroy_admin_session_path, method: :delete %></li>
+			<% elsif user_signed_in? %>
+				<li><%= link_to "Estudiantes", institution_students_path(current_user.institution) %></li>
+	    		<li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+	    	<% end %>
 		</ul>
 	</nav>
 
