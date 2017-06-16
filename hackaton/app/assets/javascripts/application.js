@@ -12,4 +12,8 @@
 //
 //= require rails-ujs
 //= require turbolinks
-//= require_tree .
+//=	require jquery
+//=	require skel.min.js
+//=	require util.js
+//=	require main.js
+//# require_tree .

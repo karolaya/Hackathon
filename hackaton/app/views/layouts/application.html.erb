@@ -8,27 +8,75 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-	<% if user_signed_in? %>	
+  <body class="landing">
 
-	  Logged in as <strong><%= current_user.email %></strong>.
-	  <%= link_to 'Edit profile', edit_user_registration_path %> 
-	  <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+	<!-- Header -->
+	<header id="header" class="alt">
+		<h1><%= link_to 'BPF', root_path %></h1>
+		
+		<% if user_signed_in? %>	
+	  		Logged in as <strong><%= current_user.email %></strong>.
+	  		<a href="#nav">Menu</a>
+			<%= link_to 'Editar perfil', edit_user_registration_path %> 
+	    	<%= link_to "Logout", destroy_user_session_path, method: :delete %>
 
-	<% elsif admin_signed_in? %>
+		<% elsif admin_signed_in? %>
+	  		Logged in as <strong><%= current_admin.email %></strong>.
+	  		<a href="#nav">Menu</a>
+	  		<%= link_to "Logout", destroy_admin_session_path, method: :delete %>
 
-	  Logged in as <strong><%= current_admin.email %></strong>.
-	  <%= link_to "Logout", destroy_admin_session_path, method: :delete %>
+		<% else %>	
+	  		<%= link_to "Login user", new_user_session_path , :class => "button alt"%> 
+	  		<%= link_to "Login admin", new_admin_session_path , :class => "button alt"%>
 
-	<% else %>	
+		<% end %>
 
-	  <%= link_to "Sign up", new_user_registration_path %> |
-	  <%= link_to "Login user", new_user_session_path %> |
-	  <%= link_to "Login admin", new_admin_session_path %>
+	</header> 	
 
-	<% end %>
+	<!-- Nav -->
+	<nav id="nav">
+		<ul class="links">
+			<li><%= link_to 'Estadísticas', root_path %></li>
+			<li><%= link_to 'Back', institutions_path %></li>
+			<li><%= link_to 'Back', institutions_path %></li>
+		</ul>
+	</nav>
+
+	<!-- Banner -->
+	<section id="banner">
+		<i class="icon fa-diamond"></i>
+		<h2>Becas Para el Futuro</h2>
+		<p>Ministerio de Educación Nacional de Colombia</p>
+		<ul class="actions">
+			<li><a href="#" class="button big special">Conoce más</a></li>
+		</ul>
+	</section>
     
     <%= yield %>
 
+    <!-- Footer -->
+	<footer id="footer">
+		<div class="inner">
+			<ul class="icons">
+				<li><a href="#" class="icon fa-facebook">
+					<span class="label">Facebook</span>
+				</a></li>
+				<li><a href="#" class="icon fa-twitter">
+					<span class="label">Twitter</span>
+				</a></li>
+				<li><a href="#" class="icon fa-instagram">
+					<span class="label">Instagram</span>
+				</a></li>
+				<li><a href="#" class="icon fa-linkedin">
+					<span class="label">LinkedIn</span>
+				</a></li>
+			</ul>
+			<ul class="copyright">
+				<li>&copy; Untitled.</li>
+				<li>Images: <a href="http://unsplash.com">Unsplash</a>.</li>
+				<li>Design: <a href="http://templated.co">TEMPLATED</a>.</li>
+			</ul>
+		</div>
+	</footer>
   </body>
 </html>
