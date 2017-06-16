@@ -1,7 +1,6 @@
 <p id="notice"><%= notice %></p>
-
-<h1>Students</h1>
-
+<section id="one" class="wrapper style1" style="background-color:#FFFFFF">
+  <div class="inner">
 <table>
   <thead>
     <tr>
@@ -44,4 +43,6 @@
 
 <br>
 
-<%= link_to 'New Student', new_institution_student_path(@institution) %>
+<%= link_to 'New Student', new_institution_student_path(@institution) , :class => "button alt"%>
+  </div>
+</section>

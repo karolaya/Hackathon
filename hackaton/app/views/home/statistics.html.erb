@@ -1,23 +1,27 @@
-<table>
-  <thead>
-    <tr>
-      <th>Identificación</th>
-      <th>Nombre</th>
-      <th>Institución</th>
-      <th>Icfes</th>
-      <th>Promedio</th>
-    </tr>
-  </thead>
+<section id="one" class="wrapper style1" background="color:#101010">
+  <div class="inner">
+    <table>
+      <thead>
+        <tr>
+          <th>Identificación</th>
+          <th>Nombre</th>
+          <th>Institución</th>
+          <th>Icfes</th>
+          <th>Promedio</th>
+        </tr>
+      </thead>
 
-  <tbody>
-    <% @students.each do |student| %>
-      <tr>
-        <td><%= student.identificacion %></td>
-        <td><%= student.nombre %></td>
-        <td><%= student.institution.nombre %></td>
-        <td><%= student.icfes %></td>
-        <td><%= student.mean == nil ? "" : student.mean.round(2) %></td>      
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      <tbody>
+        <% @students.each do |student| %>
+          <tr>
+            <td><%= student.identificacion %></td>
+            <td><%= student.nombre %></td>
+            <td><%= student.institution.nombre %></td>
+            <td><%= student.icfes %></td>
+            <td><%= student.mean == nil ? "" : student.mean.round(2) %></td>      
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</section>

@@ -1,6 +1,7 @@
-<h1>Editing Student</h1>
+<section id="one" class="wrapper style1" style="background-color:#FFFFFF">
+  <div class="inner">
+	<%= render 'form', institution: @institution, student: @student %>
 
-<%= render 'form', institution: @institution, student: @student %>
-
-<%= link_to 'Show', institution_student_path(@institution,@student) %> |
-<%= link_to 'Back', institution_students_path(@institution) %>
+	<%= link_to 'Show', institution_student_path(@institution,@student) %> 
+  </div>
+</section>
