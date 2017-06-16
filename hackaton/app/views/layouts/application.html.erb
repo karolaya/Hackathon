@@ -17,9 +17,7 @@
 		<% if user_signed_in? %>	
 	  		Bienvenido <strong><%= current_user.institution.nombre %></strong>
 	  		<a href="#nav">Menu</a>
-			<%= link_to 'Editar perfil', edit_user_registration_path %> 
-	    	<%= link_to "Logout", destroy_user_session_path, method: :delete %>
-
+	    	<%= link_to "Logout", destroy_user_session_path, method: :delete %>	    	
 		<% elsif admin_signed_in? %>
 	  		Logueado como <strong>root</strong>
 	  		<a href="#nav">Menu</a>

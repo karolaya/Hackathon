@@ -18,6 +18,7 @@ class StudentsController < ApplicationController
     @nota9e = @student.nota9e  * 20.0 unless @student.nota9e == nil
     @nota10e = @student.nota10e * 20.0 unless @student.nota10e == nil
     @nota11e = @student.nota11e * 20.0 unless @student.nota11e == nil
+    @icfes = @student.icfes * 100.0 unless @student.icfes == nil
 
   if (@student.nota9a != nil) 
       if (@student.nota10a != nil) 
@@ -75,6 +76,7 @@ class StudentsController < ApplicationController
     @student.nota9e = @student.nota9e/20.0 unless @student.nota9e == nil
     @student.nota10e = @student.nota10e/20.0 unless @student.nota10e == nil
     @student.nota11e = @student.nota11e/20.0 unless @student.nota11e == nil
+    @student.icfes = @student.icfes / 100.0 unless @student.icfes == nil
 
     if (@student.nota9a != nil) 
       if (@student.nota10a != nil) 
