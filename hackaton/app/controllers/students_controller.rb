@@ -5,11 +5,19 @@ class StudentsController < ApplicationController
   # GET /students.json
   def index
     @students = Student.all
+
+  
   end
 
   # GET /students/1
   # GET /students/1.json
   def show
+    @nota9a = @student.nota9a * 20.0 unless @student.nota9a == nil
+    @nota10a = @student.nota10a * 20.0 unless @student.nota10a == nil
+    @nota11a = @student.nota11a * 20.0 unless @student.nota11a == nil
+    @nota9e = @student.nota9e  * 20.0 unless @student.nota9e == nil
+    @nota10e = @student.nota10e * 20.0 unless @student.nota10e == nil
+    @nota11e = @student.nota11e * 20.0 unless @student.nota11e == nil
   end
 
   # GET /students/new
@@ -25,6 +33,13 @@ class StudentsController < ApplicationController
   # POST /students.json
   def create
     @student = Student.new(student_params)
+    
+    @student.nota9a = @student.nota9a/20.0 unless @student.nota9a == nil
+    @student.nota10a = @student.nota10a/20.0 unless @student.nota10a == nil
+    @student.nota11a = @student.nota11a/20.0 unless @student.nota11a == nil
+    @student.nota9e = @student.nota9e/20.0 unless @student.nota9e == nil
+    @student.nota10e = @student.nota10e/20.0 unless @student.nota10e == nil
+    @student.nota11e = @student.nota11e/20.0 unless @student.nota11e == nil
 
     respond_to do |format|
       if @student.save
