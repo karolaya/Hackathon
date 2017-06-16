@@ -1,17 +1,17 @@
 <section id="one" class="wrapper style1" background="color:#101010">
   <div class="inner">
     <article class="feature right">
-      <span class="image"><img src="images/pic02.jpg" alt="" /></span>
+      <span class="image"><img src="/images/pic04.png" alt="" /></span>
       <div class="content">
         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
           <div class="field">
-            <%= f.label :email %><br />
+            <%= f.label :email %>
             <%= f.email_field :email, autofocus: true %>
             <br />
           </div>
 
           <div class="field">
-            <%= f.label :password %><br />
+            <%= f.label :password %>
             <%= f.password_field :password, autocomplete: "off" %>
           </div>
 
