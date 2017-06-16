@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get 'home/index'
+  get 'home/statistics'
 
   devise_for :admins
   devise_for :users
