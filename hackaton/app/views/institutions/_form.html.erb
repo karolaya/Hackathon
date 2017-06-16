@@ -22,14 +22,16 @@
   </div>
 
   <div class="field">
-    <%= form.label :tipo %>
-    <%= form.text_field :tipo, id: :institution_tipo %>
+    <%= form.label :tipo %>    
+    <%= form.select :tipo, Institution.tipos.keys %>
   </div>
 
   <div class="field">
     <%= form.label :estrato %>
     <%= form.number_field :estrato, id: :institution_estrato %>
   </div>
+
+
 
   <div class="actions">
     <%= form.submit %>

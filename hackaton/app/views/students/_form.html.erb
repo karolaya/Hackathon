@@ -23,7 +23,7 @@
 
   <div class="field">
     <%= form.label :institution_id %>
-    <%= form.number_field :institution_id, id: :student_institution_id %>
+    <%= form.collection_select :institution_id, Institution.order(:nombre), :id, :nombre %>
   </div>
 
   <div class="field">

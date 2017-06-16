@@ -25,12 +25,12 @@
         <td><%= student.identificacion %></td>
         <td><%= student.nombre %></td>
         <td><%= student.institution_id %></td>
-        <td><%= student.nota9a %></td>
-        <td><%= student.nota9e %></td>
-        <td><%= student.nota10a %></td>
-        <td><%= student.nota10e %></td>
-        <td><%= student.nota11a %></td>
-        <td><%= student.nota11e %></td>
+        <td><%= student.nota9a == nil ? "" : student.nota9a * 20 %></td>
+        <td><%= student.nota9e == nil ? "" : student.nota9e * 20 %></td>
+        <td><%= student.nota10a == nil ? "" : student.nota10a * 20 %></td>
+        <td><%= student.nota10e == nil ? "" : student.nota10e * 20 %></td>
+        <td><%= student.nota11a == nil ? "" : student.nota11a * 20 %></td>
+        <td><%= student.nota11e == nil ? "" : student.nota11e * 20 %></td>
         <td><%= student.icfes %></td>
         <td><%= link_to 'Show', student %></td>
         <td><%= link_to 'Edit', edit_student_path(student) %></td>
