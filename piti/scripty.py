@@ -1,8 +1,11 @@
 import sqlite3
 import numpy as np
+import sys
 from sklearn import svm
 
-conn = sqlite3.connect('hackaton/db/development.sqlite3')
+test = np.array(sys.argv[1:]).reshape(1,-1)
+
+conn = sqlite3.connect('hackaton/db/development_py.sqlite3')
 cc = conn.cursor()
 cc.execute('SELECT * FROM students')
 
@@ -14,11 +17,11 @@ labels = np.zeros([len(data), 1])
 conn.close()
 
 for i in range(len(data)):
-    for j in range(4,11):
-        if j == 10:
+    for j in range(3,10):
+        if j == 9:
             labels[i][0] = data[i][j]
         else:
-            arr[i][j-4] = data[i][j]
+            arr[i][j-3] = data[i][j]
 
 arr = arr.astype(float)
 
@@ -27,4 +30,9 @@ labels = labels.astype(int)
 clf = svm.SVC(decision_function_shape='ovr')
 clf.fit(arr, labels.ravel())
 
-print(clf.predict(np.array([4,4,4,4,4,4]).reshape(1,-1)))
+#test = np.array([4,4,4,4,4,4]).reshape(1,-1)
+
+confidence = abs(np.array(clf.decision_function(test)))
+
+
+print(clf.predict(test))
