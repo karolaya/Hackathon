@@ -24,7 +24,7 @@
       <tr>
         <td><%= student.identificacion %></td>
         <td><%= student.nombre %></td>
-        <td><%= student.institution_id %></td>
+        <td><%= student.institution.nombre %></td>
         <td><%= student.nota9a == nil ? "" : student.nota9a * 20 %></td>
         <td><%= student.nota9e == nil ? "" : student.nota9e * 20 %></td>
         <td><%= student.nota10a == nil ? "" : student.nota10a * 20 %></td>

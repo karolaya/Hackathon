@@ -1,6 +1,6 @@
 class InstitutionsController < ApplicationController
   before_action :set_institution, only: [:show, :edit, :update, :destroy]
-  #before_action :authenticate_user!
+  before_action :auth_now
 
   # GET /institutions
   # GET /institutions.json
@@ -71,5 +71,9 @@ class InstitutionsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def institution_params
       params.require(:institution).permit(:nombre, :ciudad, :tipo, :estrato)
+    end
+
+    def auth_now
+      redirect_to root_path unless current_admin || current_user.institution == @institution
     end
 end

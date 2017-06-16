@@ -18,7 +18,7 @@
       <tr>
         <td><%= institution.nombre %></td>
         <td><%= institution.ciudad %></td>
-        <td><%= institution.tipo %></td>
+        <td><%= institution.tipo.humanize %></td>
         <td><%= institution.estrato %></td>
         <td><%= link_to 'Show', institution %></td>
         <td><%= link_to 'Edit', edit_institution_path(institution) %></td>
