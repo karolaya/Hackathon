@@ -12,6 +12,8 @@
 //
 //= require rails-ujs
 //= require turbolinks
+//= require Chart.bundle
+//= require chartkick
 //=	require jquery
 //=	require skel.min.js
 //=	require util.js

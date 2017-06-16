@@ -6,5 +6,11 @@ class HomeController < ApplicationController
 
   def statistics
   	@students = Student.all.order(:mean).limit(100)
+    @institutions = Student.group(:institution_id).average(:icfes)
+  end
+
+  def testing
+  	result = system("python /piti/scripty.py")
+  	@pred = result.html_safe
   end
 end
