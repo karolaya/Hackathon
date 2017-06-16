@@ -5,8 +5,6 @@ class StudentsController < ApplicationController
   # GET /students.json
   def index
     @students = Student.all
-
-  
   end
 
   # GET /students/1
@@ -18,6 +16,22 @@ class StudentsController < ApplicationController
     @nota9e = @student.nota9e  * 20.0 unless @student.nota9e == nil
     @nota10e = @student.nota10e * 20.0 unless @student.nota10e == nil
     @nota11e = @student.nota11e * 20.0 unless @student.nota11e == nil
+
+  if (@student.nota9a != nil) 
+      if (@student.nota10a != nil) 
+        if (@student.nota11a != nil) 
+          if (@student.nota9e != nil) 
+            if (@student.nota10e != nil) 
+              if (@student.nota11e != nil) 
+                if(@student.icfes != nil )
+                   @student.mean = ((@student.nota9a + @student.nota10a + @student.nota11a)/3.0) * 0.4 + ((@student.nota9e + @student.nota10e + @student.nota11e)/3.0) * 0.1 + (@student.icfes)* 0.5 
+                  end         
+              end  
+            end
+          end
+        end
+      end
+    end
   end
 
   # GET /students/new
@@ -27,6 +41,23 @@ class StudentsController < ApplicationController
 
   # GET /students/1/edit
   def edit
+
+    if (@student.nota9a != nil) 
+      if (@student.nota10a != nil) 
+        if (@student.nota11a != nil) 
+          if (@student.nota9e != nil) 
+            if (@student.nota10e != nil) 
+              if (@student.nota11e != nil) 
+                if(@student.icfes != nil )
+                   @student.mean = ((@student.nota9a + @student.nota10a + @student.nota11a)/3.0) * 0.4 + ((@student.nota9e + @student.nota10e + @student.nota11e)/3.0) * 0.1 + (@student.icfes)* 0.5 
+                   @student.save();
+                  end         
+              end  
+            end
+          end
+        end
+      end
+    end
   end
 
   # POST /students
@@ -40,6 +71,22 @@ class StudentsController < ApplicationController
     @student.nota9e = @student.nota9e/20.0 unless @student.nota9e == nil
     @student.nota10e = @student.nota10e/20.0 unless @student.nota10e == nil
     @student.nota11e = @student.nota11e/20.0 unless @student.nota11e == nil
+
+    if (@student.nota9a != nil) 
+      if (@student.nota10a != nil) 
+        if (@student.nota11a != nil) 
+          if (@student.nota9e != nil) 
+            if (@student.nota10e != nil) 
+              if (@student.nota11e != nil) 
+                if(@student.icfes != nil )
+                   @student.mean = ((@student.nota9a + @student.nota10a + @student.nota11a)/3.0) * 0.4 + ((@student.nota9e + @student.nota10e + @student.nota11e)/3.0) * 0.1 + (@student.icfes)* 0.5 
+                  end         
+              end  
+            end
+          end
+        end
+      end
+    end
 
     respond_to do |format|
       if @student.save
