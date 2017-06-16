@@ -9,16 +9,23 @@
   </head>
 
   <body>
-	<% if user_signed_in? %>
-	
+	<% if user_signed_in? %>	
+
 	  Logged in as <strong><%= current_user.email %></strong>.
 	  <%= link_to 'Edit profile', edit_user_registration_path %> 
 	  <%= link_to "Logout", destroy_user_session_path, method: :delete %>
-	
-	<% else %>
-	
+
+	<% elsif admin_signed_in? %>
+
+	  Logged in as <strong><%= current_admin.email %></strong>.
+	  <%= link_to "Logout", destroy_admin_session_path, method: :delete %>
+
+	<% else %>	
+
 	  <%= link_to "Sign up", new_user_registration_path %> |
-	  <%= link_to "Login", new_user_session_path %>
+	  <%= link_to "Login user", new_user_session_path %> |
+	  <%= link_to "Login admin", new_admin_session_path %>
+
 	<% end %>
     
     <%= yield %>
