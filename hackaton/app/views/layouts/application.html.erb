@@ -15,13 +15,13 @@
 		<h1><%= link_to 'BPF', root_path %></h1>
 		
 		<% if user_signed_in? %>	
-	  		Logged in as <strong><%= current_user.email %></strong>.
+	  		Bienvenido <strong><%= current_user.institution.nombre %></strong>
 	  		<a href="#nav">Menu</a>
 			<%= link_to 'Editar perfil', edit_user_registration_path %> 
 	    	<%= link_to "Logout", destroy_user_session_path, method: :delete %>
 
 		<% elsif admin_signed_in? %>
-	  		Logged in as <strong><%= current_admin.email %></strong>.
+	  		Logueado como <strong>root</strong>
 	  		<a href="#nav">Menu</a>
 	  		<%= link_to "Logout", destroy_admin_session_path, method: :delete %>
 
