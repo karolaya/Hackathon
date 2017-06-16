@@ -32,7 +32,7 @@ clf.fit(arr, labels.ravel())
 
 #test = np.array([4,4,4,4,4,4]).reshape(1,-1)
 
-confidence = abs(np.array(clf.decision_function(test)))
+max_conf = abs(np.max(np.array(clf.decision_function(test))))*10
 
-
-print(clf.predict(test))
+final_val = int(clf.predict(test)*100+max_conf)
+print(final_val)
