@@ -15,6 +15,7 @@
       <th>Nota11a</th>
       <th>Nota11e</th>
       <th>Icfes</th>
+      <th>Promedio</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -32,9 +33,10 @@
         <td><%= student.nota11a == nil ? "" : student.nota11a * 20 %></td>
         <td><%= student.nota11e == nil ? "" : student.nota11e * 20 %></td>
         <td><%= student.icfes %></td>
+        <td><%= student.mean == nil ? "" : student.mean.round(2) %></td>
         <td><%= link_to 'Show', institution_student_path(@institution, student) %></td>
         <td><%= link_to 'Edit', edit_institution_student_path(@institution, student) %></td>
-        <td><%= link_to 'Delete', institution_student_path(@institution, student), method: :delete, data: { confirm: 'Seguro?' } %></td>
+        <td><%= link_to 'Delete', institution_student_path(@institution, student), method: :delete, data: { confirm: 'Seguro?' } %></td>        
       </tr>
     <% end %>
   </tbody>
