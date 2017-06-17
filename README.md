@@ -9,7 +9,7 @@ La plataforma web fue desarrollada en Ruby usando el framework **rails**. Parte 
     rails version 5.1.1
     python version 3.5
     
-En caso del framework **rails**, se gemas adicionales instálelas a través del comando:
+En caso del framework **rails**, las gemas adicionales instálelas a través del comando:
 
     bundle install
     
