@@ -30,7 +30,7 @@ Las relaciones son tal cual se muestran, el ministerio tiene múltiples instituc
 ### Representación en Base de Datos
 Cada una de las entidades mencionadas (excepto el ministerio, que hasta ahora está como superuser) tiene una representación en base de datos y relaciones de dependencia (FOREIGN KEYS). La representación de la institución es la siguiente:
 
- |   ID  | NOMBRE | CIUDAD |            TIPO            | EXTRATO | 
+ |   ID  | NOMBRE | CIUDAD |            TIPO            | ESTRATO | 
  |-------|--------|--------|----------------------------|---------|
  |ENTERO | TEXTO  |  TEXTO | PUBLICO O PRIVADO (ENTERO) | ENTERO  |
 
